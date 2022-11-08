@@ -27,7 +27,7 @@
 - Now to make your hello.sh file executable, run the command `chmod +x hello.sh`
 - Now if you try to run the script using `./hello.sh` you will see that hello world is printed in the terminal
 
-## How to comments and variables work in bash shell scripts
+## How do comments and variables work in bash shell scripts
 
 - To write a comment in a bash shell script, just start the line with a `#` and anything you write post that in that line will be part of a comment.
 - For a comment the `#` does not have to start at the line. If you place it anywhere in the line, it will also work.
@@ -48,6 +48,39 @@
         - You can also easily concatenate variables into other strings. Example : `The name is $name`
         - Variable name should not start with a number.
 
+## How to read user inputs
+
+- For example if you want the user to enter their name, you do `echo "Enter name :`.
+- Then in the next line you can use the read command in this manner `read name`.
+- Now in the above command name is a variable that can be further used in the script.
+- After this you can display the user entered name using `read "The name that was entered : $name"`
+- You can also read multiple inputs bu just adding more variables names after the first one in the read command in this manner : `read name1 name2 name3`.
+- Now when actually entering those names, don't press enter after entering the first name, just after a space enter the other names and then press enter.
+- After this you can use these name variables in any way you want.
+- By adding the `-p` flag to the read command, you can make the input in the shell happen on the same line.
+- After the `-p` flag will come the string before the input to show and then the variable name.
+    - Example : `read -p "Enter user name : " name`
+- Some times we want to not show what the user is typing in the input. For example when the user is inputing their password.
+- To do this we can use the `-s` flag.
+    - Example : `read -sp "Enter password : " password`
+- To take inputs in an array, you can use the `-a` flag.
+    - Example code : `read -a names`.
+- To read the array, you can read it with the index in the following manner: -
+    - Example code : `Names entered : ${names[0]}, ${names[1]}, ${names[2]}`
+- If you don't pass any variable name after read, you can receive the input in a default system variable called `$REPLY`
+
+## How to pass arguments into a bash script
+
+- The arguments that you pass into a bash script are by default stored in the following variables: -
+    - 1st argument passed will be stored in variable `$1`
+    - 2nd argument passed will be stored in variable `$2`
+    - You know where this is going....
+- With the `$0` variable, you get the name of the shell script you are running.
+- We can also take in the arguments into an array using the following code : `args=("@")`
+- With this ^ code, the args variable will have an array of arguments.
+- Also if you want to print the whole array at once, you can do that like this : `echo $@`
+- If you want to know the number of arguments passed, then to get that there is a default variable called `$#`
+
 ## Where I am in the tutorial at the moment
 
-- I have completed the first 2 videos. I am at video 3 now which I am yet to make notes on.
+- I have completed the first 4 videos. I am at video 5 now which I am yet to make notes on.
